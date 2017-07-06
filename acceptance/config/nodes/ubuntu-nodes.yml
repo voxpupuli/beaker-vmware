@@ -1,0 +1,22 @@
+HOSTS:
+  ubuntu.local:
+    roles:
+      - master
+      - agent
+      - dashboard
+      - database
+      - default
+    platform: ubuntu-1604-amd64 
+    vmname: ubuntu-1604-64
+    hypervisor: fusion
+    snapshot: rishi-clear-keys
+  ubuntu2.local:
+    roles:
+      - agent
+    platform: ubuntu-1604-amd64
+    vmname: ubuntu-1604-64-2
+    hypervisor: fusion
+    snapshot: rishi-clear-keys
+CONFIG:
+  nfs_server: none
+  consoleport: 443
