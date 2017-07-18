@@ -26,7 +26,7 @@ bundle exec rake test:spec
 
 # Acceptance tests
 
-We run beaker's base acceptance tests with this library to see if the hypervisor is working with beaker. There is a simple rake task to invoke acceptance test for the library:
+We run beaker's base acceptance tests with this library to see if the hypervisor is working with beaker. Please refer to the setting up [vmware fusion](vmware_fusion.md) docs to setup your hosts for testing and modify the [test-nodes hosts](acceptance/config/nodes/test-nodes.yml) file. Once that's setup, there is a simple rake task to invoke acceptance test for the library:
 ```bash
 bundle exec rake test:acceptance
 ```
