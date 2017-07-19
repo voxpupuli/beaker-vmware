@@ -4,7 +4,7 @@ Beaker library to use vmware fusion hypervisor
 
 # How to use this wizardry
 
-This gem that allows you to use hosts with [vmware_fusion](vmware_fusion.md) hypervisor with [beaker](https://github.com/puppetlabs/beaker). 
+This gem that allows you to use hosts with [vmware_fusion](vmware_fusion.md) and [vsphere](vsphere.md) hypervisor with [beaker](https://github.com/puppetlabs/beaker). 
 
 ### Right Now? (beaker 3.x)
 
