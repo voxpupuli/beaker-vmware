@@ -12,25 +12,12 @@ class VsphereHelper
   end
 
   def self.load_config(dot_fog = '.fog')
-    # support Fog/Cloud Provisioner layout
-    # (ie, someplace besides my made up conf)
-    vsphere_credentials = nil
-    if File.exists?( dot_fog )
-      vsphere_credentials = load_fog_credentials(dot_fog)
-    else
-      raise ArgumentError, ".fog file '#{dot_fog}' does not exist"
-    end
-
-    return vsphere_credentials
-  end
-
-  def self.load_fog_credentials(dot_fog = '.fog')
-    vInfo = YAML.load_file( dot_fog )
+    default = parse_fog_file(dot_fog)
 
     vsphere_credentials = {}
-    vsphere_credentials[:server] = vInfo[:default][:vsphere_server]
-    vsphere_credentials[:user]   = vInfo[:default][:vsphere_username]
-    vsphere_credentials[:pass]   = vInfo[:default][:vsphere_password]
+    vsphere_credentials[:server] = default[:vsphere_server]
+    vsphere_credentials[:user]   = default[:vsphere_username]
+    vsphere_credentials[:pass]   = default[:vsphere_password]
 
     return vsphere_credentials
   end
