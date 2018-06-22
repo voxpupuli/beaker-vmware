@@ -1,5 +1,5 @@
 HOSTS:
-  ubuntu.local:
+  beaker-ubuntu.local:
     roles:
       - master
       - agent
@@ -10,7 +10,7 @@ HOSTS:
     vmname: ubuntu-1604-64
     hypervisor: fusion
     snapshot: clear-keys
-  ubuntu2.local:
+  beaker-ubuntu2.local:
     roles:
       - agent
     platform: ubuntu-1604-amd64

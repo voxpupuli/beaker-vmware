@@ -4,7 +4,7 @@ Beaker library to use vmware fusion hypervisor
 
 # How to use this wizardry
 
-This gem that allows you to use hosts with [vmware_fusion](vmware_fusion.md) and [vsphere](vsphere.md) hypervisor with [beaker](https://github.com/puppetlabs/beaker). 
+This gem allows you to use hosts with [vmware_fusion](vmware_fusion.md) and [vsphere](vsphere.md) hypervisor with [beaker](https://github.com/puppetlabs/beaker).
 
 ### Right Now? (beaker 3.x)
 
@@ -20,15 +20,17 @@ next to beaker itself.
 # Spec tests
 
 Spec test live under the `spec` folder. There are the default rake task and therefore can run with a simple command:
-```bash
-bundle exec rake test:spec
+
+```console
+$ bundle exec rake test:spec
 ```
 
 # Acceptance tests
 
-We run beaker's base acceptance tests with this library to see if the hypervisor is working with beaker. Please refer to the setting up [vmware fusion](vmware_fusion.md) docs to setup your hosts for testing and modify the [test-nodes hosts](acceptance/config/nodes/test-nodes.yml) file. Once that's setup, there is a simple rake task to invoke acceptance test for the library:
-```bash
-bundle exec rake test:acceptance
+We run beaker's base acceptance tests with this library to see if the hypervisor is working with beaker. You can run the acceptance tests locally; see <acceptance_setup.md>. Once that's setup, there is a simple rake task to invoke acceptance test for the library:
+
+```console
+$ bundle exec rake test:acceptance
 ```
 
 # Contributing
