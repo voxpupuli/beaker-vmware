@@ -12,7 +12,7 @@ class VsphereHelper
   end
 
   def self.load_config(dot_fog = '.fog')
-    default = parse_fog_file(dot_fog)
+    default = get_fog_credentials(dot_fog)
 
     vsphere_credentials = {}
     vsphere_credentials[:server] = default[:vsphere_server]
