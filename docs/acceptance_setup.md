@@ -8,7 +8,7 @@ First, provision a base VM to clone for testing. Currently, tests are confirmed 
 
 These instructions cover provisioning a Ubuntu 16.04 VM:
 
-1. Download a Ubuntu 16.04 64-bit ISO.
+1. Download [a Ubuntu 16.04 64-bit ISO](http://releases.ubuntu.com/16.04/).
 2. Create a new VMWare Virtual Machine for it, named `beaker-ubuntu-1604-64`.
 3. Run the OS installation. Default settings should be adequate. Name the main user whatever you want; testing relies on passwordless root login so this is unimportant.
 4. Install and configure OpenSSH on the VM:
@@ -69,10 +69,10 @@ These instructions cover provisioning the two testing VMs with a new public key 
 
 Although originally written for VMWare Fusion 3.x, the Ruby Gem Fission which we use to configure VMWare Fusion VMs appears to work just fine with 10.x. All that is required is changing the local configuration to point to the CLI tools and VM datastore. Create `~/.fissionrc`:
 
-    ~~~yaml
-    vm_dir: "/Users/<your user name>/Documents/Virtual Machines.localized/" # or whereved you've decided to store your `.vmwarevm` files
-    vmrun_bin: "/Applications/VMware Fusion.app/Contents/Library/vmrun"
-    ~~~
+~~~yaml
+vm_dir: "/Users/<your user name>/Documents/Virtual Machines.localized/" # or whereved you've decided to store your `.vmwarevm` files
+vmrun_bin: "/Applications/VMware Fusion.app/Contents/Library/vmrun"
+~~~
 
 # DHCP/VMnet Issues
 
