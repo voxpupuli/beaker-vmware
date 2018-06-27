@@ -30,7 +30,7 @@ These instructions cover provisioning a Ubuntu 16.04 VM:
 These instructions cover provisioning the two testing VMs with a new public key for SSH access. We need two instances of the base VM, `beaker-ubuntu-1604-64` and `beaker-ubuntu-1604-64-2`:
 
 1. You can use the base VM configuration as the first SUT to save space.
-2. Configure a static IP for the VM. See <fusion_static_ip.md>.
+2. Configure a static IP for the VM. See [fusion_static_ip.md](fusion_static_ip.md).
 3. Add an entry in /etc/hosts: `<static ip> beaker-ubuntu.local`.
 4. Set Up password-less SSH access:
     - Generate a new SSH key *without a passphrase*:
@@ -57,11 +57,11 @@ These instructions cover provisioning the two testing VMs with a new public key 
         ~~~console
         $ ssh root@beaker-ubuntu.local
         ~~~
-5. Create a new snapshot (of the running VM) in VMWare Fusion: with the VM selected, Virtual Machine > Snapshots... > Take Snapshot (Cmd-Shift-S). Name this new snapshot `clear-keys`. This snapshot name is used in <acceptance/config/nodes/hosts.yaml>; when beaker provisions a VMWare host it restores it to a specified snapshot.
+5. Create a new snapshot (of the running VM) in VMWare Fusion: with the VM selected, Virtual Machine > Snapshots... > Take Snapshot (Cmd-Shift-S). Name this new snapshot `clear-keys`. This snapshot name is used in [acceptance/config/nodes/hosts.yaml](acceptance/config/nodes/hosts.yaml); when beaker provisions a VMWare host it restores it to a specified snapshot.
 6. Clone the second testing VM from this snapshot.
     1. Right Click > "Create Full Clone" named `beaker-ubuntu-1604-64-2`.
     2. Resume the clone and note the MAC address: VM > Settings > Network > Advanced. Make sure it's different from the original.
-    3. Configure a new static IP for this VM. See <fusion_static_ip.md> again.
+    3. Configure a new static IP for this VM. See [fusion_static_ip.md](fusion_static_ip.md) again.
     4. Add another entry in `/etc/hosts`: `<static ip> beaker-ubuntu2.local`.
     5. Create a new snapshot named `clear-keys`.
 
@@ -76,7 +76,7 @@ Although originally written for VMWare Fusion 3.x, the Ruby Gem Fission which we
 
 # DHCP/VMnet Issues
 
-If you have problems with DHCP leases not being issued automatically when a VM is booted or resumed, and manually restarting vmnet makes it work, follow debugging directions in <fusion_static_ip.md#debugging>.
+If you have problems with DHCP leases not being issued automatically when a VM is booted or resumed, and manually restarting vmnet makes it work, follow debugging directions in [Debugging](fusion_static_ip.md#debugging).
 
 # Test Failures
 
