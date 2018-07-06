@@ -57,7 +57,7 @@ These instructions cover provisioning the two testing VMs with a new public key 
         ~~~console
         $ ssh root@beaker-ubuntu.local
         ~~~
-5. Create a new snapshot (of the running VM) in VMWare Fusion: with the VM selected, Virtual Machine > Snapshots... > Take Snapshot (Cmd-Shift-S). Name this new snapshot `clear-keys`. This snapshot name is used in [acceptance/config/nodes/hosts.yaml](acceptance/config/nodes/hosts.yaml); when beaker provisions a VMWare host it restores it to a specified snapshot.
+5. Create a new snapshot (of the running VM) in VMWare Fusion: with the VM selected, Virtual Machine > Snapshots... > Take Snapshot (Cmd-Shift-S). Name this new snapshot `clear-keys`. This snapshot name is used in [acceptance/config/nodes/test-nodes.yml](acceptance/config/nodes/test-nodes.yml); when beaker provisions a VMWare host it restores it to a specified snapshot.
 6. Clone the second testing VM from this snapshot.
     1. Right Click > "Create Full Clone" named `beaker-ubuntu-1604-64-2`.
     2. Resume the clone and note the MAC address: VM > Settings > Network > Advanced. Make sure it's different from the original.
