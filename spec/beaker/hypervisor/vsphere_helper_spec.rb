@@ -22,7 +22,7 @@ module Beaker
     describe "#load_config" do
 
       it 'can load a .fog file' do
-        allow( File ).to receive( :exists? ).and_return( true )
+        allow( File ).to receive( :exist? ).and_return( true )
         allow( YAML ).to receive( :load_file ).and_return( fog_file_contents )
 
         expect( VsphereHelper.load_config ).to be === vInfo
@@ -30,7 +30,7 @@ module Beaker
       end
 
       it 'raises an error when the .fog file is missing' do
-        allow( File ).to receive( :exists? ).and_return( false )
+        allow( File ).to receive( :exist? ).and_return( false )
 
         expect{ VsphereHelper.load_config }.to raise_error( ArgumentError )
 
