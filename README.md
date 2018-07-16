@@ -27,7 +27,7 @@ $ bundle exec rake test:spec
 
 # Acceptance tests
 
-We run beaker's base acceptance tests with this library to see if the hypervisor is working with beaker. You can run the acceptance tests locally; see [Acceptance Setup](acceptance_setup.md). Once that's setup, there is a simple rake task to invoke acceptance test for the library:
+We run beaker's base acceptance tests with this library to see if the hypervisor is working with beaker. You can run the acceptance tests locally; see [Acceptance Setup](/docs/acceptance_setup.md). Once that's setup, there is a simple rake task to invoke acceptance test for the library:
 
 ```console
 $ bundle exec rake test:acceptance
