@@ -9,7 +9,7 @@ You can then use the following arguments in the node configuration:
 - `hypervisor: fusion` tells us to enable this feature for this host. This is required.
 - `snapshot: <name>`, where <name> is the snapshot name to revert to.  This is required.
 
-We'll try and match up the hostname with a VM of the same name. Note that the VM is expected to be pre-configured for running acceptance tests; it should have all the right prerequisite libraries, password-less SSH access for root, etc.
+We'll try and match up the hostname with a VM of the same name. Note that the VM is expected to be pre-configured for running acceptance tests: a vanilla OS install with internet access and password-less SSH access for root is all that is required.
 
 There are a few additional options available in your configuration file. Each host
 section can now use:
