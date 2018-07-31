@@ -36,6 +36,18 @@ module Beaker
 
       end
 
+      it 'Picks up the top-level creds if no instance specified' do
+        # TBD
+      end
+
+      it 'Picks up instance creds if instance specified' do
+        # TBD
+      end
+
+      it 'raises an error if it cant find the instance' do
+        # TBD
+      end
+
     end
 
    describe "#find_snapshot" do
