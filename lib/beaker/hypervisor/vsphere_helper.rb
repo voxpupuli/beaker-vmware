@@ -22,6 +22,19 @@ class VsphereHelper
     return vsphere_credentials
   end
 
+  # New method (so as not to conflict with any existing vshere cred retrieval)
+  # Return credentials associated with specific vcenter_instance
+  def self.get_vsphere_creds(dot_fog = '.fog', credential_group = :default)
+    fog_credentials = get_fog_credentials(dot_fog, credential_group)
+
+    vsphere_credentials = {}
+    vsphere_credentials[:server] = fog_credentials[:vsphere_server]
+    vsphere_credentials[:user]   = fog_credentials[:vsphere_username]
+    vsphere_credentials[:pass]   = fog_credentials[:vsphere_password]
+
+    return vsphere_credentials
+  end
+
   def find_snapshot vm, snapname
     if vm.snapshot
       search_child_snaps vm.snapshot.rootSnapshotList, snapname
@@ -188,4 +201,3 @@ class VsphereHelper
     @connection.close
   end
 end
-
