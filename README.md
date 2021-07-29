@@ -1,5 +1,13 @@
 # beaker-vmware
 
+[![License](https://img.shields.io/github/license/voxpupuli/beaker-vmware.svg)](https://github.com/voxpupuli/beaker-vmware/blob/master/LICENSE)
+[![Test](https://github.com/voxpupuli/beaker-vmware/actions/workflows/test.yml/badge.svg)](https://github.com/voxpupuli/beaker-vmware/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/voxpupuli/beaker-vmware/branch/master/graph/badge.svg)](https://codecov.io/gh/voxpupuli/beaker-vmware)
+[![Release](https://github.com/voxpupuli/beaker-vmware/actions/workflows/release.yml/badge.svg)](https://github.com/voxpupuli/beaker-vmware/actions/workflows/release.yml)
+[![RubyGem Version](https://img.shields.io/gem/v/beaker-vmware.svg)](https://rubygems.org/gems/beaker-vmware)
+[![RubyGem Downloads](https://img.shields.io/gem/dt/beaker-vmware.svg)](https://rubygems.org/gems/beaker-vmware)
+[![Donated by Puppet Inc](https://img.shields.io/badge/donated%20by-Puppet%20Inc-fb7047.svg)](#transfer-notice)
+
 Beaker library to use vmware fusion hypervisor
 
 # How to use this wizardry
@@ -41,6 +49,24 @@ We run beaker's base acceptance tests with this library to see if the hypervisor
 $ bundle exec rake test:acceptance
 ```
 
-# Contributing
+## Transfer Notice
 
-Please refer to puppetlabs/beaker's [contributing](https://github.com/puppetlabs/beaker/blob/master/CONTRIBUTING.md) guide.
+This plugin was originally authored by [Puppet Inc](http://puppet.com).
+The maintainer preferred that Vox Pupuli take ownership of the module for future improvement and maintenance.
+Existing pull requests and issues were transferred over, please fork and continue to contribute at https://github.com/voxpupuli/beaker-vmware
+
+Previously: https://github.com/puppetlabs/beaker-vmware
+
+## License
+
+This gem is licensed under the Apache-2 license.
+
+## Release information
+
+To make a new release, please do:
+* update the version in lib/beaker-vmware/version.rb
+* Install gems with `bundle install --with release --path .vendor`
+* generate the changelog with `bundle exec rake changelog`
+* Check if the new version matches the closed issues/PRs in the changelog
+* Create a PR with it
+* After it got merged, push a tag. GitHub actions will do the actual release to rubygems and GitHub Packages
