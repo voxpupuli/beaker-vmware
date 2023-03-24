@@ -23,11 +23,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'fakefs', '~> 0.6'
   s.add_development_dependency 'rake'
 
-  # Documentation dependencies
-  s.add_development_dependency 'yard'
-  s.add_development_dependency 'markdown'
-  s.add_development_dependency 'thin'
-
   # Run time dependencies
   s.add_runtime_dependency 'stringify-hash', '~> 0.0.0'
   s.add_runtime_dependency 'fission', '~> 0.4'
