@@ -1,46 +1,39 @@
 require 'rspec/core/rake_task'
 
 namespace :test do
-
   namespace :spec do
-
-    desc "Run spec tests"
+    desc 'Run spec tests'
     RSpec::Core::RakeTask.new(:run) do |t|
       t.rspec_opts = ['--color']
       t.pattern = 'spec/'
     end
 
-    desc "Run spec tests with coverage"
+    desc 'Run spec tests with coverage'
     RSpec::Core::RakeTask.new(:coverage) do |t|
       ENV['BEAKER_VMWARE_COVERAGE'] = 'y'
       t.rspec_opts = ['--color']
       t.pattern = 'spec/'
     end
-
   end
 
   namespace :acceptance do
-
-    desc <<-EOS
-A quick acceptance test, named because it has no pre-suites to run
+    desc <<~EOS
+      A quick acceptance test, named because it has no pre-suites to run
     EOS
     task :quick do
-
       # setup & load_path of beaker's acceptance base and lib directory
       beaker_gem_spec = Gem::Specification.find_by_name('beaker')
       beaker_gem_dir = beaker_gem_spec.gem_dir
       beaker_test_base_dir = File.join(beaker_gem_dir, 'acceptance/tests/base')
       load_path_option = File.join(beaker_gem_dir, 'acceptance/lib')
 
-      sh("beaker",
-         "--hosts", "acceptance/config/nodes/test-nodes.yml",
-         "--tests", beaker_test_base_dir,
-         "--log-level", "debug",
-         "--load-path", load_path_option)
+      sh('beaker',
+         '--hosts', 'acceptance/config/nodes/test-nodes.yml',
+         '--tests', beaker_test_base_dir,
+         '--log-level', 'debug',
+         '--load-path', load_path_option)
     end
-
   end
-
 end
 
 # namespace-named default tasks.
@@ -50,13 +43,14 @@ task 'test:spec' => 'test:spec:run'
 task 'test:acceptance' => 'test:acceptance:quick'
 
 # global defaults
-task :test => 'test:spec'
-task :default => :test
+task test: 'test:spec'
+task default: :test
 
 begin
   require 'rubygems'
   require 'github_changelog_generator/task'
-rescue LoadError # rubocop:disable Lint/HandleExceptions
+rescue LoadError
+  # github_changelog_generator is an optional group
 else
   GitHubChangelogGenerator::RakeTask.new :changelog do |config|
     config.exclude_labels = %w[duplicate question invalid wontfix wont-fix skip-changelog]
@@ -64,5 +58,18 @@ else
     config.project = 'beaker-vmware'
     gem_version = Gem::Specification.load("#{config.project}.gemspec").version
     config.future_release = gem_version
+  end
+end
+
+begin
+  require 'rubocop/rake_task'
+rescue LoadError
+  # RuboCop is an optional group
+else
+  RuboCop::RakeTask.new(:rubocop) do |task|
+    # These make the rubocop experience maybe slightly less terrible
+    task.options = ['--display-cop-names', '--display-style-guide', '--extra-details']
+    # Use Rubocop's Github Actions formatter if possible
+    task.formatters << 'github' if ENV['GITHUB_ACTIONS'] == 'true'
   end
 end

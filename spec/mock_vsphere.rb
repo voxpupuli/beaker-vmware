@@ -1,7 +1,5 @@
 class MockRbVmomiSnapshot
-  attr_accessor :name
-  attr_accessor :rootSnapshotList
-  attr_accessor :childSnapshotList
+  attr_accessor :name, :rootSnapshotList, :childSnapshotList
 
   def initialize
     @name = nil
@@ -9,13 +7,13 @@ class MockRbVmomiSnapshot
     @childSnapshotList = []
   end
 
-  def print_nested_array arg
+  def print_nested_array(arg)
     str = '[ '
     arg.each do |arry|
       if arry.is_a?(Array)
-        str += print_nested_array( arry )
+        str += print_nested_array(arry)
       elsif arry.is_a?(MockRbVmomiSnapshot)
-        str += arry.to_s + ", "
+        str += arry.to_s + ', '
       end
     end
     str + ' ]'
@@ -28,7 +26,6 @@ class MockRbVmomiSnapshot
   def snapshot
     self
   end
-
 end
 
 class MockRbVmomiVM
@@ -38,20 +35,18 @@ class MockRbVmomiVM
     self
   end
 
-  def process_snaphash snaphash
+  def process_snaphash(snaphash)
     shotlist = []
-    snaphash.each do | name, subsnaps |
+    snaphash.each do |name, subsnaps|
       new_snap = MockRbVmomiSnapshot.new
       new_snap.name = name
-      if subsnaps.is_a?(Hash)
-        new_snap.childSnapshotList = process_snaphash( subsnaps )
-      end
+      new_snap.childSnapshotList = process_snaphash(subsnaps) if subsnaps.is_a?(Hash)
       shotlist << new_snap
     end
     shotlist
   end
 
-  def get_snapshot name, snaplist = @snapshot.rootSnapshotList
+  def get_snapshot(name, snaplist = @snapshot.rootSnapshotList)
     snapshot = nil
     snaplist.each do |snap|
       if snap.is_a?(Array)
@@ -63,19 +58,16 @@ class MockRbVmomiVM
     snapshot
   end
 
-  def initialize name, snaphash
+  def initialize(name, snaphash)
     @name = name
     @snapshot = MockRbVmomiSnapshot.new
     @snapshot.name = name
-    @snapshot.rootSnapshotList = process_snaphash( snaphash )
+    @snapshot.rootSnapshotList = process_snaphash(snaphash)
   end
-
 end
 
 class MockRbVmomiConnection
-
   class CustomizationSpecManager
-
     class CustomizationSpec
       def spec
         true
@@ -86,10 +78,9 @@ class MockRbVmomiConnection
       @customizationspec = CustomizationSpec.new
     end
 
-    def GetCustomizationSpec arg
+    def GetCustomizationSpec(_arg)
       @customizationspec
     end
-
   end
 
   class PropertyCollector
@@ -110,7 +101,6 @@ class MockRbVmomiConnection
       def propSet
         [self]
       end
-
     end
 
     class ResultContainer
@@ -124,78 +114,70 @@ class MockRbVmomiConnection
         @results
       end
 
-      def add_object obj
+      def add_object(obj)
         @results << obj
       end
-
     end
 
     def initialize
       @results = ResultContainer.new
     end
 
-
-    def RetrievePropertiesEx hash
+    def RetrievePropertiesEx(_hash)
       @results.token = true
       @results
     end
 
-    def ContinueRetrievePropertiesEx token
+    def ContinueRetrievePropertiesEx(_token)
       @results.token = false
       @results
     end
 
-    def add_result name, object
-      @results.add_object( Result.new(name, object) )
+    def add_result(name, object)
+      @results.add_object(Result.new(name, object))
     end
 
-    def WaitForUpdates arg
+    def WaitForUpdates(_arg)
       result = OpenStruct.new
       result.version = 'version'
       result
     end
 
-    def CreateFilter arg
+    def CreateFilter(_arg)
       filter = OpenStruct.new
       filter.DestroyPropertyFilter = true
       filter
     end
-
   end
 
   class ServiceInstance
     class Datacenter
-      attr_accessor :vmFolder
-      attr_accessor :hostFolder
+      attr_accessor :vmFolder, :hostFolder
 
       def initialize
         @vmFolder = MockRbVmomi::VIM::Folder.new
-        @vmFolder.name = "/root"
+        @vmFolder.name = '/root'
       end
 
-      def find_datastore arg
+      def find_datastore(_arg)
         true
       end
-
     end
 
     def initialize
       @datacenter = Datacenter.new
     end
 
-    def find_datacenter dc
+    def find_datacenter(_dc)
       @datacenter
     end
-
   end
 
   class ServiceManager
     class ViewManager
-
-      def CreateContainerView hash
+      def CreateContainerView(hash)
         @view = hash
       end
-
     end
 
     def initialize
@@ -212,20 +194,18 @@ class MockRbVmomiConnection
     end
 
     def rootFolder
-      "/root"
+      '/root'
     end
-
   end
 
-  def initialize opts
-    @host = opts[ :host ]
-    @user = opts[ :user ]
-    @password = opts[ :password ]
-    @insecure = opts[ :insecure ]
+  def initialize(opts)
+    @host = opts[:host]
+    @user = opts[:user]
+    @password = opts[:password]
+    @insecure = opts[:insecure]
     @serviceinstance = ServiceInstance.new
     @servicemanager = ServiceManager.new
     @propertycollector = PropertyCollector.new
-
   end
 
   def serviceInstance
@@ -240,16 +220,14 @@ class MockRbVmomiConnection
     @propertycollector
   end
 
-  def set_info vms
+  def set_info(vms)
     vms.each do |vm|
       @propertycollector.add_result(vm.name, vm)
     end
   end
 end
 
-
 class MockRbVmomi
-
   class VIM
     class Folder
       attr_accessor :name
@@ -257,7 +235,6 @@ class MockRbVmomi
       def find
         self
       end
-
 
       def childEntity
         self
@@ -267,7 +244,7 @@ class MockRbVmomi
         self
       end
 
-      def traverse path, type=Object, create=false
+      def traverse(_path, _type = Object, _create = false)
         self
       end
     end
@@ -282,7 +259,6 @@ class MockRbVmomi
       def resourcePool
         self
       end
-
     end
 
     class ClusterComputeResource
@@ -295,20 +271,14 @@ class MockRbVmomi
       def resourcePool
         self
       end
-
     end
 
     class TraversalSpec
-      def initialize hash
-
-      end
-
+      def initialize(hash); end
     end
 
-    def self.connect opts
-      MockRbVmomiConnection.new( opts )
+    def self.connect(opts)
+      MockRbVmomiConnection.new(opts)
     end
-
   end
-
 end
