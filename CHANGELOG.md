@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.0.0](https://github.com/voxpupuli/beaker-vmware/tree/2.0.0) (2023-03-28)
+
+[Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/1.0.0...2.0.0)
+
+**Breaking changes:**
+
+- Drop Ruby 2.4/2.5/2.6 support; Add 3.1 [\#25](https://github.com/voxpupuli/beaker-vmware/pull/25) ([bastelfreak](https://github.com/bastelfreak))
+
+**Implemented enhancements:**
+
+- Implement rubocop [\#26](https://github.com/voxpupuli/beaker-vmware/pull/26) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- Update fakefs requirement from ~\> 0.6 to ~\> 2.4 [\#23](https://github.com/voxpupuli/beaker-vmware/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
+- CI: Apply Vox Pupuli best practices [\#22](https://github.com/voxpupuli/beaker-vmware/pull/22) ([bastelfreak](https://github.com/bastelfreak))
+- Bump actions/checkout from 2 to 3 [\#21](https://github.com/voxpupuli/beaker-vmware/pull/21) ([dependabot[bot]](https://github.com/apps/dependabot))
+- dependabot: check for github actions and gems [\#20](https://github.com/voxpupuli/beaker-vmware/pull/20) ([bastelfreak](https://github.com/bastelfreak))
+- Update rbvmomi requirement from ~\> 1.9 to \>= 1.9, \< 4.0 [\#12](https://github.com/voxpupuli/beaker-vmware/pull/12) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [1.0.0](https://github.com/voxpupuli/beaker-vmware/tree/1.0.0) (2021-08-09)
 
 [Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/0.3.0...1.0.0)
