@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec', '~> 3.0'
   s.add_development_dependency 'rspec-its'
-  s.add_development_dependency 'rubocop', '~> 1.48.1'
+  s.add_development_dependency 'rubocop', '~> 1.50.0'
   s.add_development_dependency 'rubocop-performance', '~> 1.10'
   s.add_development_dependency 'rubocop-rake', '~> 0.2'
   s.add_development_dependency 'rubocop-rspec', '>= 1.44'
