@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Beaker
   class Fusion < Beaker::Hypervisor
     def initialize(fusion_hosts, options)
@@ -20,7 +22,7 @@ module Beaker
     end
 
     def provision
-      available = @fission.all.data.collect { |vm| vm.name }.sort.join(', ')
+      available = @fission.all.data.collect(&:name).sort.join(', ')
       @logger.notify "Available VM names: #{available}"
 
       @hosts.each do |host|
@@ -29,7 +31,7 @@ module Beaker
         raise "Could not find VM '#{vm_name}' for #{host.name}!" unless vm.exists?
 
         vm_snapshots = vm.snapshots.data
-        if vm_snapshots.nil? or vm_snapshots.empty?
+        if vm_snapshots.nil? || vm_snapshots.empty?
           raise "No snapshots available for VM #{host.name} (vmname: '#{vm_name}')"
         end
 
@@ -54,7 +56,7 @@ module Beaker
         time = Time.now - start
         @logger.notify 'Spent %.2f seconds resuming VM' % time
       end
-    end # revert_fusion
+    end
 
     def cleanup
       @logger.notify 'No cleanup for fusion boxes'

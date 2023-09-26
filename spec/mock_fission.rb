@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Response
   attr_accessor :code, :message, :data
 

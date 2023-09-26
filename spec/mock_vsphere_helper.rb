@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MockVsphereSnapshot
   attr_accessor :name
 
@@ -77,8 +79,6 @@ class MockVsphereHelper
   @@fog_file = {}
   @@vms = {}
 
-  def initialize(arg); end
-
   def self.add_vm(name, vm)
     @@vms[name] = vm
   end
@@ -124,13 +124,13 @@ class MockVsphereHelper
     keys = ([] << keys)
     keys.flatten!
     keys.each do |key|
-      found[key] = @@vms[key] if @@vms.has_key?(key)
+      found[key] = @@vms[key] if @@vms.key?(key)
     end
     found
   end
 
   def self.find_vm(key)
-    return unless @@vms.has_key?(key)
+    return unless @@vms.key?(key)
 
     @@vms[key]
   end

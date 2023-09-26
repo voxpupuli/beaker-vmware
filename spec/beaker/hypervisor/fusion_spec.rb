@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 module Beaker
   describe Fusion do
-    let(:fusion) { Beaker::Fusion.new(@hosts, make_opts) }
+    let(:fusion) { described_class.new(@hosts, make_opts) }
 
     before do
       stub_const('Fission::VM', true)
       @hosts = make_hosts
       MockFission.presets(@hosts)
-      allow_any_instance_of(Fusion).to receive(:require).with('fission').and_return(true)
+      allow_any_instance_of(described_class).to receive(:require).with('fission').and_return(true)
       fusion.instance_variable_set(:@fission, MockFission)
     end
 
@@ -33,7 +35,7 @@ module Beaker
 
     it 'host fails init with nil snapshot' do
       @hosts[0][:snapshot] = nil
-      expect { Beaker::Fusion.new(@hosts, make_opts) }.to raise_error(/specify a snapshot/)
+      expect { described_class.new(@hosts, make_opts) }.to raise_error(/specify a snapshot/)
     end
   end
 end
