@@ -26,6 +26,6 @@ Gem::Specification.new do |s|
   # Run time dependencies
   s.add_runtime_dependency 'beaker', '>= 4', '< 6'
   s.add_runtime_dependency 'fission', '~> 0.4'
-  s.add_runtime_dependency 'rbvmomi', '>= 1.9', '< 4.0'
+  s.add_runtime_dependency 'rbvmomi2', '~> 3.7'
   s.add_runtime_dependency 'stringify-hash', '~> 0.0.0'
 end
