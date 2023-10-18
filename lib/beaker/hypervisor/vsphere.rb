@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml' unless defined?(YAML)
 require 'beaker/hypervisor/vsphere_helper'
 
@@ -12,8 +14,8 @@ module Beaker
     def provision
       vsphere_credentials = VsphereHelper.load_config(@options[:dot_fog])
 
-      @logger.notify "Connecting to vSphere at #{vsphere_credentials[:server]}" +
-                     " with credentials for #{vsphere_credentials[:user]}"
+      @logger.notify "Connecting to vSphere at #{vsphere_credentials[:server]} " \
+                     "with credentials for #{vsphere_credentials[:user]}"
 
       vsphere_helper = VsphereHelper.new(vsphere_credentials)
 
@@ -24,7 +26,7 @@ module Beaker
       end
       vms = vsphere_helper.find_vms(vsphere_vms.keys)
       vsphere_vms.each_pair do |name, snap|
-        unless vm = vms[name]
+        unless (vm = vms[name])
           raise "Couldn't find VM #{name} in vSphere!"
         end
 
@@ -57,15 +59,15 @@ module Beaker
       @logger.notify 'Destroying vsphere boxes'
       vsphere_credentials = VsphereHelper.load_config(@options[:dot_fog])
 
-      @logger.notify "Connecting to vSphere at #{vsphere_credentials[:server]}" +
-                     " with credentials for #{vsphere_credentials[:user]}"
+      @logger.notify "Connecting to vSphere at #{vsphere_credentials[:server]} " \
+                     "with credentials for #{vsphere_credentials[:user]}"
 
       vsphere_helper = VsphereHelper.new(vsphere_credentials)
 
       vm_names = @hosts.map { |h| h['vmname'] || h.name }
       vms = vsphere_helper.find_vms vm_names
       vm_names.each do |name|
-        unless vm = vms[name]
+        unless (vm = vms[name])
           raise "Couldn't find VM #{name} in vSphere!"
         end
 

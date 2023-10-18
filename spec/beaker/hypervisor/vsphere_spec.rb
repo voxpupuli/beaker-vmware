@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 module Beaker
@@ -11,7 +13,7 @@ module Beaker
     describe '#provision' do
       it 'provisions hosts' do
         MockVsphereHelper.powerOff
-        vsphere = Beaker::Vsphere.new(make_hosts, make_opts)
+        vsphere = described_class.new(make_hosts, make_opts)
 
         vsphere.provision
 
@@ -25,7 +27,7 @@ module Beaker
         MockVsphereHelper.powerOff
         hosts = make_hosts
         hosts[0][:vmname] = 'unknown'
-        vsphere = Beaker::Vsphere.new(hosts, make_opts)
+        vsphere = described_class.new(hosts, make_opts)
 
         expect { vsphere.provision }.to raise_error
       end
@@ -34,7 +36,7 @@ module Beaker
         MockVsphereHelper.powerOff
         hosts = make_hosts
         hosts[0]['snapshot'] = 'unknown'
-        vsphere = Beaker::Vsphere.new(hosts, make_opts)
+        vsphere = described_class.new(hosts, make_opts)
 
         expect { vsphere.provision }.to raise_error
       end
@@ -43,7 +45,7 @@ module Beaker
         MockVsphereHelper.powerOff
         hosts = make_hosts
         hosts[0]['snapshot'] = nil
-        vsphere = Beaker::Vsphere.new(hosts, make_opts)
+        vsphere = described_class.new(hosts, make_opts)
 
         vsphere.provision
 
@@ -56,7 +58,7 @@ module Beaker
     describe '#cleanup' do
       it 'cleans up' do
         MockVsphereHelper.powerOn
-        vsphere = Beaker::Vsphere.new(make_hosts, make_opts)
+        vsphere = described_class.new(make_hosts, make_opts)
         vsphere.cleanup
 
         hosts = vsphere.instance_variable_get(:@hosts)
@@ -69,7 +71,7 @@ module Beaker
         MockVsphereHelper.powerOn
         hosts = make_hosts
         hosts[0][:vmname] = 'unknown'
-        vsphere = Beaker::Vsphere.new(hosts, make_opts)
+        vsphere = described_class.new(hosts, make_opts)
 
         expect { vsphere.cleanup }.to raise_error
       end

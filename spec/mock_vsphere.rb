@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MockRbVmomiSnapshot
   attr_accessor :name, :rootSnapshotList, :childSnapshotList
 
@@ -13,10 +15,10 @@ class MockRbVmomiSnapshot
       if arry.is_a?(Array)
         str += print_nested_array(arry)
       elsif arry.is_a?(MockRbVmomiSnapshot)
-        str += arry.to_s + ', '
+        str += "#{arry}, "
       end
     end
-    str + ' ]'
+    "#{str} ]"
   end
 
   def to_s
@@ -274,7 +276,6 @@ class MockRbVmomi
     end
 
     class TraversalSpec
-      def initialize(hash); end
     end
 
     def self.connect(opts)

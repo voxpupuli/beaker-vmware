@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml' unless defined?(YAML)
 require 'rbvmomi'
 require 'beaker/logger'
@@ -137,7 +139,7 @@ class VsphereHelper
       end
     end
 
-    base = base.resourcePool unless base.is_a?(RbVmomi::VIM::ResourcePool) and base.respond_to?(:resourcePool)
+    base = base.resourcePool unless base.is_a?(RbVmomi::VIM::ResourcePool) && base.respond_to?(:resourcePool)
     base
   end
 
@@ -162,7 +164,7 @@ class VsphereHelper
       partialUpdates: false,
     )
     ver = ''
-    while true
+    loop do
       result = @connection.propertyCollector.WaitForUpdates(version: ver)
       ver = result.version
       complete = 0
@@ -175,7 +177,6 @@ class VsphereHelper
 
       sleep 5
       try += 1
-
     end
 
     filter.DestroyPropertyFilter

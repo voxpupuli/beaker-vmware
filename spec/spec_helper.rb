@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'beaker'
 require 'mock_fission'
 require 'mock_vsphere'

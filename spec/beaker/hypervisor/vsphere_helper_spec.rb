@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 module Beaker
@@ -6,7 +8,7 @@ module Beaker
     let(:vInfo) do
       { server: 'vsphere.labs.net', user: 'vsphere@labs.com', pass: 'supersekritpassword' }
     end
-    let(:vsphere_helper) { VsphereHelper.new(vInfo.merge({ logger: logger })) }
+    let(:vsphere_helper) { described_class.new(vInfo.merge({ logger: logger })) }
     let(:snaplist)       do
       { 'snap1' => { 'snap1sub1' => nil,
                      'snap1sub2' => nil, },
@@ -30,13 +32,13 @@ module Beaker
         allow(File).to receive(:exist?).and_return(true)
         allow(YAML).to receive(:load_file).and_return(fog_file_contents)
 
-        expect(VsphereHelper.load_config).to be === vInfo
+        expect(described_class.load_config).to be === vInfo
       end
 
       it 'raises an error when the .fog file is missing' do
         allow(File).to receive(:exist?).and_return(false)
 
-        expect { VsphereHelper.load_config }.to raise_error(ArgumentError)
+        expect { described_class.load_config }.to raise_error(ArgumentError)
       end
     end
 
