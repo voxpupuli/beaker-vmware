@@ -88,13 +88,13 @@ class MockVsphereHelper
   end
 
   def self.powerOn
-    @@vms.each do |_name, vm|
+    @@vms.each_value do |vm|
       vm.powerState = 'poweredOn'
     end
   end
 
   def self.powerOff
-    @@vms.each do |_name, vm|
+    @@vms.each_value do |vm|
       vm.powerState = 'poweredOff'
     end
   end
