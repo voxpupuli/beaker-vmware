@@ -1,3 +1,5 @@
+require 'ostruct'
+
 class MockRbVmomiSnapshot
   attr_accessor :name, :rootSnapshotList, :childSnapshotList
 
