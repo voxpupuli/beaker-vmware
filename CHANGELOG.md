@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.0](https://github.com/voxpupuli/beaker-vmware/tree/2.1.0) (2024-04-23)
+
+[Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.0.0...2.1.0)
+
+**Implemented enhancements:**
+
+- Add Ruby 3.3 to CI matrix [\#43](https://github.com/voxpupuli/beaker-vmware/pull/43) ([bastelfreak](https://github.com/bastelfreak))
+- Replace dead dependency rbvmomi with rbvmomi2 [\#41](https://github.com/voxpupuli/beaker-vmware/pull/41) ([bastelfreak](https://github.com/bastelfreak))
+- Add Ruby 3.2 support [\#33](https://github.com/voxpupuli/beaker-vmware/pull/33) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- rubocop: Use task from voxpupuli-rubocop [\#42](https://github.com/voxpupuli/beaker-vmware/pull/42) ([bastelfreak](https://github.com/bastelfreak))
+- rubocop: safe autocorrection [\#38](https://github.com/voxpupuli/beaker-vmware/pull/38) ([bastelfreak](https://github.com/bastelfreak))
+- Update voxpupuli-rubocop requirement from ~\> 1.2 to ~\> 2.0 [\#36](https://github.com/voxpupuli/beaker-vmware/pull/36) ([dependabot[bot]](https://github.com/apps/dependabot))
+- GCG: Add faraday-retry dep [\#34](https://github.com/voxpupuli/beaker-vmware/pull/34) ([bastelfreak](https://github.com/bastelfreak))
+- switch to voxpupuli-rubocop & Build gems with verbosity and strictness [\#32](https://github.com/voxpupuli/beaker-vmware/pull/32) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [2.0.0](https://github.com/voxpupuli/beaker-vmware/tree/2.0.0) (2023-03-28)
 
 [Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/1.0.0...2.0.0)
@@ -16,7 +34,6 @@
 
 - Update fakefs requirement from ~\> 0.6 to ~\> 2.4 [\#23](https://github.com/voxpupuli/beaker-vmware/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
 - CI: Apply Vox Pupuli best practices [\#22](https://github.com/voxpupuli/beaker-vmware/pull/22) ([bastelfreak](https://github.com/bastelfreak))
-- Bump actions/checkout from 2 to 3 [\#21](https://github.com/voxpupuli/beaker-vmware/pull/21) ([dependabot[bot]](https://github.com/apps/dependabot))
 - dependabot: check for github actions and gems [\#20](https://github.com/voxpupuli/beaker-vmware/pull/20) ([bastelfreak](https://github.com/bastelfreak))
 - Update rbvmomi requirement from ~\> 1.9 to \>= 1.9, \< 4.0 [\#12](https://github.com/voxpupuli/beaker-vmware/pull/12) ([dependabot[bot]](https://github.com/apps/dependabot))
 
