@@ -106,8 +106,8 @@ class VsphereHelper
   end
 
   def find_datastore(dc, datastorename)
-    datacenter = @connection.serviceInstance.find_datacenter(dc)
-    datacenter.find_datastore(datastorename)
+    datacenter = @connection.serviceInstance.find_datacenter(dc) || raise("datacenter #{dc} not found")
+    datacenter.find_datastore(datastorename) || raise("datastore #{datastorename} not found in datacenter #{dc}")
   end
 
   def find_folder(dc, foldername)
