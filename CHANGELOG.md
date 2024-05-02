@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/voxpupuli/beaker-vmware/tree/2.1.1) (2024-05-02)
+
+[Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.1.0...2.1.1)
+
+**Fixed bugs:**
+
+- fail if datacenter/datastore could not be found [\#46](https://github.com/voxpupuli/beaker-vmware/pull/46) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [2.1.0](https://github.com/voxpupuli/beaker-vmware/tree/2.1.0) (2024-04-23)
 
 [Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.0.0...2.1.0)
