@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/voxpupuli/beaker-vmware/tree/2.2.0) (2024-05-28)
+
+[Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.1.1...2.2.0)
+
+**Implemented enhancements:**
+
+- beaker: Allow 6.x [\#49](https://github.com/voxpupuli/beaker-vmware/pull/49) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- voxpupuli-rubocop: require 2.7.0 [\#50](https://github.com/voxpupuli/beaker-vmware/pull/50) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [2.1.1](https://github.com/voxpupuli/beaker-vmware/tree/2.1.1) (2024-05-02)
 
 [Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.1.0...2.1.1)
