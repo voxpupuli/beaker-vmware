@@ -47,7 +47,7 @@ module Beaker
         @logger.notify "Booting #{vm.name}"
         start = Time.now
         vm.PowerOnVM_Task.wait_for_completion
-        @logger.notify format("Spent %.2f seconds booting #{vm.name}", (Time.now - start))
+        @logger.notify format("Spent %.2f seconds booting #{vm.name}", Time.now - start)
       end
 
       vsphere_helper.close
@@ -75,7 +75,7 @@ module Beaker
         start = Time.now
         vm.PowerOffVM_Task.wait_for_completion
         @logger.notify(
-          format("Spent %.2f seconds halting #{vm.name}", (Time.now - start)),
+          format("Spent %.2f seconds halting #{vm.name}", Time.now - start),
         )
       end
 
