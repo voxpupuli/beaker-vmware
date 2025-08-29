@@ -3,30 +3,6 @@ require 'mock_fission'
 require 'mock_vsphere'
 require 'mock_vsphere_helper'
 
-begin
-  require 'simplecov'
-  require 'simplecov-console'
-  require 'codecov'
-rescue LoadError
-  # Do nothing if no required gem installed
-else
-  SimpleCov.start do
-    track_files 'lib/**/*.rb'
-
-    add_filter '/spec'
-    # do not track vendored files
-    add_filter '/vendor'
-    add_filter '/.vendor'
-
-    enable_coverage :branch
-  end
-
-  SimpleCov.formatters = [
-    SimpleCov::Formatter::Console,
-    SimpleCov::Formatter::Codecov,
-  ]
-end
-
 Dir['./lib/beaker/hypervisor/*.rb'].sort.each { |file| require file }
 
 # setup & require beaker's spec_helper.rb

@@ -2,7 +2,6 @@
 
 [![License](https://img.shields.io/github/license/voxpupuli/beaker-vmware.svg)](https://github.com/voxpupuli/beaker-vmware/blob/master/LICENSE)
 [![Test](https://github.com/voxpupuli/beaker-vmware/actions/workflows/test.yml/badge.svg)](https://github.com/voxpupuli/beaker-vmware/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/voxpupuli/beaker-vmware/branch/master/graph/badge.svg)](https://codecov.io/gh/voxpupuli/beaker-vmware)
 [![Release](https://github.com/voxpupuli/beaker-vmware/actions/workflows/release.yml/badge.svg)](https://github.com/voxpupuli/beaker-vmware/actions/workflows/release.yml)
 [![RubyGem Version](https://img.shields.io/gem/v/beaker-vmware.svg)](https://rubygems.org/gems/beaker-vmware)
 [![RubyGem Downloads](https://img.shields.io/gem/dt/beaker-vmware.svg)](https://rubygems.org/gems/beaker-vmware)

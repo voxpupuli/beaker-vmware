@@ -7,13 +7,6 @@ namespace :test do
       t.rspec_opts = ['--color']
       t.pattern = 'spec/'
     end
-
-    desc 'Run spec tests with coverage'
-    RSpec::Core::RakeTask.new(:coverage) do |t|
-      ENV['BEAKER_VMWARE_COVERAGE'] = 'y'
-      t.rspec_opts = ['--color']
-      t.pattern = 'spec/'
-    end
   end
 
   namespace :acceptance do
