@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   # Testing dependencies
   s.add_development_dependency 'fakefs', '>= 2.4', '< 4'
+  s.add_development_dependency 'ostruct', '< 0.7'
   s.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
   s.add_development_dependency 'rspec', '~> 3.0'
   s.add_development_dependency 'rspec-its', '>= 1.3', '< 3'
