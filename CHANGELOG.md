@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.0](https://github.com/voxpupuli/beaker-vmware/tree/3.0.0) (2026-01-06)
+
+[Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.2.0...3.0.0)
+
+**Breaking changes:**
+
+- Require Ruby 3.2 or newer [\#56](https://github.com/voxpupuli/beaker-vmware/pull/56) ([bastelfreak](https://github.com/bastelfreak))
+
+**Implemented enhancements:**
+
+- Add Ruby 4.0 support [\#67](https://github.com/voxpupuli/beaker-vmware/pull/67) ([dependabot[bot]](https://github.com/apps/dependabot))
+- beaker: Allow 7.x [\#57](https://github.com/voxpupuli/beaker-vmware/pull/57) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [2.2.0](https://github.com/voxpupuli/beaker-vmware/tree/2.2.0) (2024-05-28)
 
 [Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.1.1...2.2.0)
