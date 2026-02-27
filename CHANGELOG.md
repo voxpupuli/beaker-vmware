@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1](https://github.com/voxpupuli/beaker-vmware/tree/3.0.1) (2026-02-27)
+
+[Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/3.0.0...3.0.1)
+
+The 3.0.0 release didn't make it to rubygems.org. The 3.0.1 contains the identical code.
+
 ## [3.0.0](https://github.com/voxpupuli/beaker-vmware/tree/3.0.0) (2026-01-06)
 
 [Full Changelog](https://github.com/voxpupuli/beaker-vmware/compare/2.2.0...3.0.0)
